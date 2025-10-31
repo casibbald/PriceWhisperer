@@ -30,24 +30,25 @@
 > “Equity markets have splintered into two extremes: ultra-high-frequency firms clipping micro-spreads and retail momentum chasers pushing price into predictable saw-tooth patterns.
 > **PriceWhisperer** lives in the middle.
 >
-> * How it works:
-    >
-    >   1. **Stream & store** minute-level trades, option chains and news headlines into a Parquet lake—cheap and query-ready.
-    >   2. **Detect** micro-patterns—oscillations, regime breaks, gaps—via an engine that flags only moves bigger than 1.2 × ATR but smaller than classic trend systems even notice.
-    >   3. **Fuse** that with real-time sentiment so we know if a spike is data-driven or pure order-flow.
->   4. **Exploit** via the option Greeks best suited to the pattern: sell defined-risk condors when range-bound, buy strangles when IV is mis-priced, or gamma-scalp straddles when realised vol outruns implied.
+>* How it works:
+>
+>  1. **Stream & store** minute-level trades, option chains and news headlines into a Parquet lake—cheap and query-ready.
+>  2. **Detect** micro-patterns—oscillations, regime breaks, gaps—via an engine that flags only moves bigger than 1.2 × ATR but smaller than classic trend systems even notice.
+>  3. **Fuse** that with real-time sentiment so we know if a spike is data-driven or pure order-flow.
+>  4. **Exploit** via the option Greeks best suited to the pattern: sell defined-risk condors when range-bound, buy strangles when IV is mis-priced, or gamma-scalp straddles when realised vol outruns implied.
+>
 > * Why it’s credible: same codebase already back-tests off months of Parquet history **and** executes live—today—in Interactive Brokers’ sandbox, with latency <1 ms inside one laptop.
 > * Path to money: flip the switch to a funded IBKR account, size trades conservatively, and iterate; then scale capital once live Sharpe > 1.5 is demonstrated over 90 days.
-    >   **Bottom line:** we’re not predicting the future—we’re arbitraging micro-behaviour everyone can see but few can automate at the options-level. The infrastructure is live; we’re ready for real capital.”
+>   **Bottom line:** we’re not predicting the future—we’re arbitraging micro-behaviour everyone can see but few can automate at the options-level. The infrastructure is live; we’re ready for real capital.”
 
 
 
 ## ✨ Key features at Milestone #1
 
 | Component          | Status                                                                                                   | Highlights                                     |
-| ------------------ | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| ------------------ |----------------------------------------------------------------------------------------------------------| ---------------------------------------------- |
 | **Data ingestion** | ✅ Live minute bars & option greeks (Polygon / IBKR) streamed into in-memory cache & archived as Parquet. | `tungstenite`, `polars`, `zstd` compression    |
-| **Pattern engine** | ✅ Rust saw-tooth detector + gap/regime switch & FinBERT sentiment fusion.                                | windowed peak/trough; ATR filter; news overlay |
+| **Pattern engine** | ✅ Saw-tooth detector + gap/regime switch & FinBERT sentiment fusion.                                     | windowed peak/trough; ATR filter; news overlay |
 | **Trade logic**    | ✅ Condor, strangle & gamma-scalp playbook wired to signals.                                              | dynamic sizing, auto-hedge rules               |
 | **Execution**      | ✅ End-to-end on Interactive Brokers **paper** gateway (identical API to live).                           | `ibkr-rust`, 50 msg/s limit-aware              |
 | **Risk & logging** | ✅ Real-time theta/delta caps; orders & fills persisted in Postgres, prices in DuckDB lake.               | Prometheus metrics, Grafana dashboard          |
