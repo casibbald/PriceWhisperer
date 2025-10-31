@@ -43,15 +43,15 @@
 
 
 
-## ✨ Key features at Milestone #1
+## ✨ Key features targeted for Milestone #1
 
 | Component          | Status                                                                                                   | Highlights                                     |
 | ------------------ |----------------------------------------------------------------------------------------------------------| ---------------------------------------------- |
-| **Data ingestion** | ✅ Live minute bars & option greeks (Polygon / IBKR) streamed into in-memory cache & archived as Parquet. | `tungstenite`, `polars`, `zstd` compression    |
-| **Pattern engine** | ✅ Saw-tooth detector + gap/regime switch & FinBERT sentiment fusion.                                     | windowed peak/trough; ATR filter; news overlay |
-| **Trade logic**    | ✅ Condor, strangle & gamma-scalp playbook wired to signals.                                              | dynamic sizing, auto-hedge rules               |
-| **Execution**      | ✅ End-to-end on Interactive Brokers **paper** gateway (identical API to live).                           | `ibkr-rust`, 50 msg/s limit-aware              |
-| **Risk & logging** | ✅ Real-time theta/delta caps; orders & fills persisted in Postgres, prices in DuckDB lake.               | Prometheus metrics, Grafana dashboard          |
+| **Data ingestion** | 🚧 Live minute bars & option greeks (Polygon / IBKR) streamed into in-memory cache & archived as Parquet. | `tungstenite`, `polars`, `zstd` compression    |
+| **Pattern engine** | 🚧 Saw-tooth detector + gap/regime switch & FinBERT sentiment fusion.                                     | windowed peak/trough; ATR filter; news overlay |
+| **Trade logic**    | 🚧 Condor, strangle & gamma-scalp playbook wired to signals.                                              | dynamic sizing, auto-hedge rules               |
+| **Execution**      | 🚧 End-to-end on Interactive Brokers **paper** gateway (identical API to live).                           | `ibkr-rust`, 50 msg/s limit-aware              |
+| **Risk & logging** | 🚧 Real-time theta/delta caps; orders & fills persisted in Postgres, prices in DuckDB lake.               | Prometheus metrics, Grafana dashboard          |
 
 > **Definition of Done:** 24-hour unattended paper run with zero runtime exceptions and a complete trade ledger.
 
