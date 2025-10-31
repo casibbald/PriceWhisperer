@@ -30,7 +30,7 @@
 > “Equity markets have splintered into two extremes: ultra-high-frequency firms clipping micro-spreads and retail momentum chasers pushing price into predictable saw-tooth patterns.
 > **PriceWhisperer** lives in the middle.
 >
->* How it works:
+> **How it works:**
 >
 >  1. **Stream & store** minute-level trades, option chains and news headlines into a Parquet lake—cheap and query-ready.
 >  2. **Detect** micro-patterns—oscillations, regime breaks, gaps—via an engine that flags only moves bigger than 1.2 × ATR but smaller than classic trend systems even notice.
