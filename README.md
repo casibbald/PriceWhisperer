@@ -361,4 +361,6 @@ Apache 2.0 — free for personal & commercial use with attribution.
 
 ---
 
-> **Disclaimer**: This software is for educational purposes. Trading options involves substantial risk of loss and is not suitable for all investors. Past performance does not guarantee future results. Always do your own research and consider consulting with a financial advisor.
+> **Disclaimer**: This software is for educational purposes, and you will lose your money if connected to a life trading account!.
+>  Trading options involves substantial risk of loss and is not suitable for all investors. 
+> Past performance does not guarantee future results. Always do your own research and consider consulting with a financial advisor.
